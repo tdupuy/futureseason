@@ -1,1 +1,8 @@
 /* Ajout css */
+.page-title{
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.jumbotron.header-block{
+  background-color: #FFE436;
+}
