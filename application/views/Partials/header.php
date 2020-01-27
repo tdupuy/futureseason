@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
+    <link href="https://fonts.googleapis.com/css?family=Beth+Ellen|Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
     <title>Jumbotron Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->

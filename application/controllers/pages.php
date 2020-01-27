@@ -8,6 +8,7 @@ class Pages extends CI_Controller{
 		{
 			show_404();
 		}
+    $this->load->helper('url');
     $this->load->view('Partials/header.php');
     $this->load->view('Partials/navmenu.php');
 		$this->load->view('Pages/'.$page);
