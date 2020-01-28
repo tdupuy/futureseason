@@ -4,7 +4,7 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron header-block">
         <div class="container">
-          <center><h2 class="display-3 page-title">Welcome to home page</h2></center>
+          <center><h2 class="display-3 page-title">{heading}</h2></center>
         </div>
       </div>
 

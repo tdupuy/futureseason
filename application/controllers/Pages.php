@@ -7,13 +7,34 @@ class Pages extends CI_Controller{
 		{
 			show_404();
 		}
+
+		$data_header = [];
+		$data_navmenu = [];
+		$data_footer = [];
+		$data_content = [];
+
+		switch ($page) {
+			case 'home':
+				$data_header = [
+					'title' => 'Home page'
+				];
+				$data_content = [
+					'heading' => 'Quand est-ce que ça sort ?!'
+				]; 
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
     	$this->load->helper('url');
-	    $this->load->view('Partials/header.php');
-	    $this->load->view('Partials/navmenu.php');
-		$this->load->view('Pages/'.$page);
-	    $this->load->view('Partials/footer.php');
+    	$this->load->library('parser');
+		$this->parser->parse('Partials/header.php',$data_header);
+		$this->parser->parse('Partials/navmenu.php',$data_navmenu);
+		$this->parser->parse('Partials/footer.php',$data_footer);
+		$this->parser->parse('Pages/'.$page,$data_content);
 	}
 
-}
 
-?>
+}
