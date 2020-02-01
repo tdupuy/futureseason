@@ -13,6 +13,8 @@ class Pages extends CI_Controller{
 		$data_footer = [];
 		$data_content = [];
 
+		$this->load->model('Series/Series_model');
+
 		switch ($page) {
 			case 'home':
 				$data_header = [
@@ -20,7 +22,7 @@ class Pages extends CI_Controller{
 				];
 				$data_content = [
 					'heading' => 'Quand est-ce que ça sort ?!',
-					'series' => $this->load->model('Series/Series_model')
+					'series' => $this->Series_model->get_random_series()
 				];
 				break;
 
