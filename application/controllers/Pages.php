@@ -22,7 +22,7 @@ class Pages extends CI_Controller{
 				];
 				$data_content = [
 					'heading' => 'Quand est-ce que ça sort ?!',
-					'series' => $this->Series_model->get_random_series(3)
+					'series' => $this->Series_model->get_random_series()
 				];
 				break;
 

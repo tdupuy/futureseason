@@ -7,21 +7,10 @@ Class Series_model extends CI_Model{
 		$data = json_decode($data);
 		$i = 0;
 		$img_path = "https://image.tmdb.org/t/p/original";
-		for ($i=0; $i < $number; $i++) {
+		for ($i=0; $i < 3; $i++) {
 			$array_data[] = $data->results[$i];
-			$id_tmdb = $data->results[$i]->id;
-			$details = file_get_contents("https://api.themoviedb.org/3/tv/$id_tmdb?api_key=$this->api_key");
-			$details = json_decode($details);
-
-			if($details->in_production){
-				$array_data[$i]->production = "En cours";
-			}else{
-				$array_data[$i]->production = "Terminé";
-			}
-			$array_data[$i]->current_season = "Saison ".$details->number_of_seasons;
-			// @TODO peut avoir plusieurs genres
-			$array_data[$i]->type = "Genre : ".$details->genres[0]->name;
 			$array_data[$i]->img_path = $img_path.$data->results[$i]->poster_path;
+			// Ajouter la photo network
 		}
 		return $array_data;
 	}
