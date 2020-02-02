@@ -10,5 +10,6 @@
 <script src="assets/js/vendor/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script type = 'text/javascript' src = "<?php echo base_url(); ?>js/sample.js"></script>
+<script type = 'text/javascript' src = "<?php echo base_url(); ?>js/owl.carousel.min.js"></script>
 </body>
 </html>

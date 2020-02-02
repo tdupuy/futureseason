@@ -8,8 +8,9 @@
         </div>
       </div>
 	     <div id="cat-1" class="container py-5">
-        <!-- Example row of columns -->
+        <h1> Séries aléatoires </h1>
         <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
+          <div class="owl-carousel owl-theme">
           {series}
           <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
             <img class="card-img-top" src="{img_path}" alt="Card image cap">
@@ -27,6 +28,7 @@
             </div>
           </div>
           {/series}
+        </div>
         </div>
       </div>
 		    <hr>

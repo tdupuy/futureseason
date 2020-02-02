@@ -8,6 +8,8 @@
     <link rel="icon" href="../../../../favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Beth+Ellen|Sedgwick+Ave&display=swap" rel="stylesheet">
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/owl.theme.default.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/owl.carousel.min.css">
     <title>{title}</title>
 
     <!-- Bootstrap core CSS -->
