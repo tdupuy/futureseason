@@ -1,13 +1,12 @@
 <?php
 
-class Pages extends CI_Controller{
+class Pages extends MY_Controller{
 	function view($page = 'home')
 	{
 		if( !file_exists('application/views/Pages/'.$page.'.php'))
 		{
 			show_404();
 		}
-
 		$data_header = [];
 		$data_navmenu = [];
 		$data_footer = [];
@@ -31,12 +30,7 @@ class Pages extends CI_Controller{
 				break;
 		}
 
-    	$this->load->helper('url');
-    	$this->load->library('parser');
-		$this->parser->parse('Partials/header.php',$data_header);
-		$this->parser->parse('Partials/navmenu.php',$data_navmenu);
-		$this->parser->parse('Partials/footer.php',$data_footer);
-		$this->parser->parse('Pages/'.$page,$data_content);
+			$this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
 	}
 
 
