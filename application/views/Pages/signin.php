@@ -1,3 +1,4 @@
+<main role="main">
 <div class="container">
       <div class="col-md-6 mx-auto text-center">
          <div class="header-title">
@@ -38,3 +39,4 @@
          </div>
       </div>
    </div>
+ </main>

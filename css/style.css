@@ -6,3 +6,7 @@
 .jumbotron.header-block{
   background-color: #FFE436;
 }
+
+main[role='main']{
+  padding-top: 3rem;
+}
