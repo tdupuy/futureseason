@@ -19,7 +19,7 @@ class Login extends MY_Controller {
         }
         else{
             $data['error'] = 'Your Account is Invalid';
-            $this->render_page('login',$data);
+            $this->render_page('login',$data,array('title' => 'Login'));
         }
     }
     public function logout()

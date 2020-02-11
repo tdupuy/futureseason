@@ -24,7 +24,10 @@ class Pages extends MY_Controller{
 					'series' => $this->Series_model->get_random_series(10)
 				];
 				break;
-
+			case 'login':
+			$data_header = [
+				'title' => 'Login'
+			];
 			default:
 				# code...
 				break;
