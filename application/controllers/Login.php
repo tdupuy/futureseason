@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends MY_Controller {
 
-    public function index()
+    /*public function index()
     {
         $this->render_page('login');
-    }
+    }*/
     public function process()
     {
         $user = $this->input->post('email');

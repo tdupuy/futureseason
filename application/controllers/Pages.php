@@ -25,9 +25,13 @@ class Pages extends MY_Controller{
 				];
 				break;
 			case 'login':
-			$data_header = [
-				'title' => 'Login'
-			];
+				$data_header = [
+					'title' => 'Login'
+				];
+			case 'signin':
+					$data_header = [
+						'title' => 'Sign in !'
+					];
 			default:
 				# code...
 				break;

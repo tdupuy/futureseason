@@ -9,7 +9,7 @@
               </div>
             <?php endif; ?>
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin" action="<?php echo site_url('Login/process'); ?>" method="post">
+            <form class="form-signin" action="<?php echo base_url('Login/process'); ?>" method="post">
               <div class="form-label-group">
                 <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>
