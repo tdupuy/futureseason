@@ -12,4 +12,9 @@ Class Users_model extends CI_Model{
            $this->db->insert('user', $this);
            return ($this->db->affected_rows() != 1) ? false : true;
    }
+
+   public function is_user_exist($email){
+      $query = $this->db->get_where('user',array('email' => $email));
+      return $query->result() ? true : false;
+   }
 }
