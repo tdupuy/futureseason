@@ -13,7 +13,7 @@ class Pages extends MY_Controller{
 		$data_content = [];
 
 		$this->load->model('Series/Series_model');
-
+		$this->load->library('session');
 		switch ($page) {
 			case 'home':
 				$data_header = [

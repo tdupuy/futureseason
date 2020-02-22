@@ -11,13 +11,13 @@ class Login extends MY_Controller {
     {
         $user = $this->input->post('email');
         $pass = $this->input->post('password');
-        if ($user=='juhi@aaa.fr' && $pass=='123')
+        $this->load->model('Users/Users_model');
+        if ($user = $this->Users_model->log_user($user,$pass))
         {
             //declaring session
             $this->session->set_userdata(array('user'=>$user));
-            redirect("home");;
-        }
-        else{
+            redirect("home");
+        }else{
             $data['error'] = 'Your Account is Invalid';
             $this->render_page('login',$data,array('title' => 'Login'));
         }
