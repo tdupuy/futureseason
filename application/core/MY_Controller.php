@@ -5,9 +5,12 @@ class MY_Controller extends CI_Controller{
   {
      $this->load->helper('url');
      $this->load->library('parser');
+	 $this->load->library('javascript');
+	 $this->load->library('javascript/jquery');
      $this->parser->parse('Partials/header.php',$data_header);
      $this->parser->parse('Partials/navmenu.php',$data_navmenu);
      $this->parser->parse('Pages/'.$view,$data_content);
      $this->parser->parse('Partials/footer.php',$data_footer);
+
   }
 }

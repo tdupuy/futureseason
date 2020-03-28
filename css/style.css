@@ -10,3 +10,11 @@
 main[role='main']{
   padding-top: 3rem;
 }
+
+.overview{
+	display: none;
+}
+
+.read-more:hover{
+	cursor: pointer;
+}

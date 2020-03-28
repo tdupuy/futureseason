@@ -15,8 +15,8 @@
                 <img class="card-img-top" src="{img_path}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{name}</h5>
-                  <a class="card-text"> Afficher plus ...</a>
-                  <p class="card-text d-none">{overview}</p>
+                  <p class="card-text overview">{overview}</p>
+                  <a class="card-text read-more"> Afficher plus ...</a>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{production}</li>
@@ -40,7 +40,8 @@
                  <img class="card-img-top" src="{img_path}" alt="Card image cap">
                  <div class="card-body">
                    <h5 class="card-title">{name}</h5>
-                   <p class="card-text">{overview}</p>
+                   <p class="card-text overview">{overview}</p>
+                   <a class="card-text read-more"> Afficher plus ...</a>
                  </div>
                  <ul class="list-group list-group-flush">
                    <li class="list-group-item">{production}</li>
@@ -64,7 +65,8 @@
                   <img class="card-img-top" src="{img_path}" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">{name}</h5>
-                    <p class="card-text">{overview}</p>
+                    <p class="card-text overview">{overview}</p>
+                    <a class="card-text read-more"> Afficher plus ...</a>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">{production}</li>
@@ -81,3 +83,26 @@
           </div>
 		    <hr>
     </main>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var owl = $('.owl-carousel');
+        $('.read-more').click(function(){
+          owl.trigger('stop.owl.autoplay')
+          $(this).siblings('.overview').slideToggle(500,function(){
+            if($(this).is(':visible'))
+               $(this).siblings('.read-more').text('Afficher moins ...');
+             else
+               $(this).siblings('.read-more').text('Afficher plus ...');
+          });
+          // Stopper le slider et si click sur afficher moins ou hover out relancer le slider et replier le menu
+        });
+        $('.card-custom').mouseleave(function(){
+          if($(this).find('.overview').is(':visible')){
+            owl.trigger('play.owl.autoplay');
+            $(this).find('.overview').slideUp(function(){
+              $(this).siblings('.read-more').text('Afficher plus ...');
+            });
+          }
+        });
+      });
+    </script>
