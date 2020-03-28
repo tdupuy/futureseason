@@ -23,8 +23,8 @@ Class Users_model extends CI_Model{
      if ($query->num_rows() > 0){
           $user_row = $query->row();
           if(password_verify($pass, $user_row->mdp)){
-            $user_data['id'] = $user_row->email;
-            $user_data['login'] = $user_row->id;
+            $user_data['id'] = $user_row->id;
+            $user_data['login'] = $user_row->email;
             return $user_data;
           }
           return false;

@@ -1,5 +1,4 @@
 <body>
-
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +17,11 @@
           <a class="nav-link" href="contact">contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login">Login</a>
+          <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+            <a class="nav-link" href="<?php echo base_url('Login/logout'); ?>">Logout</a>
+          <?php else : ?>
+            <a class="nav-link" href="login">Login</a>
+          <?php endif; ?>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="signin">Register</a>
