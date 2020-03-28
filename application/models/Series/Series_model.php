@@ -6,7 +6,7 @@ Class Series_model extends CI_Model{
 		$data = file_get_contents("https://api.themoviedb.org/3/discover/tv?api_key=$this->api_key&language=fr-FR&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false");
 		$data = json_decode($data);
 		$i = 0;
-		$img_path = "https://image.tmdb.org/t/p/original";
+		$img_path = "https://image.tmdb.org/t/p/w500";
 		for ($i=0; $i < $number; $i++) {
 			$array_data[] = $data->results[$i];
 			$id_tmdb = $data->results[$i]->id;
