@@ -24,7 +24,11 @@
                   <li class="list-group-item">{type}</li>
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
+                      <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php else : ?>
+                      <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
+                    <?php endif; ?>
                 </div>
               </div>
               {/series}
@@ -49,7 +53,11 @@
                    <li class="list-group-item">{type}</li>
                  </ul>
                  <div class="card-body">
-                   <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+                      <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php else : ?>
+                      <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
+                    <?php endif; ?>
                  </div>
                </div>
                {/series}
@@ -74,7 +82,11 @@
                     <li class="list-group-item">{type}</li>
                   </ul>
                   <div class="card-body">
-                    <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+                      <a href="#" class="btn btn-primary">Suivre</a>
+                    <?php else : ?>
+                      <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
+                    <?php endif; ?>
                   </div>
                 </div>
                 {/series}

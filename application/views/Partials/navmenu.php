@@ -17,7 +17,7 @@
           <a class="nav-link" href="contact">contact</a>
         </li>
         <li class="nav-item">
-          <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+          <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
             <a class="nav-link" href="<?php echo base_url('Login/logout'); ?>">Logout</a>
           <?php else : ?>
             <a class="nav-link" href="login">Login</a>
