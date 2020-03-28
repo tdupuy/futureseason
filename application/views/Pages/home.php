@@ -15,7 +15,8 @@
                 <img class="card-img-top" src="{img_path}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{name}</h5>
-                  <p class="card-text">{overview}</p>
+                  <a class="card-text"> Afficher plus ...</a>
+                  <p class="card-text d-none">{overview}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{production}</li>
