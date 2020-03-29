@@ -40,5 +40,18 @@ class Pages extends MY_Controller{
 			$this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
 	}
 
-
+	function follow_serie($id_user,$id_tmdb,$ajax = false){
+		$this->load->model('Series/Series_model');
+		if($this->Series_model->set_follow_serie($id_user,$id_tmdb)){
+			if($ajax)
+				echo "true";
+			else
+				return true;
+		}else{
+			if($ajax)
+				echo "false";
+			else
+				return false;
+		}
+	}
 }

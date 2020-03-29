@@ -26,4 +26,17 @@ Class Series_model extends CI_Model{
 		}
 		return $array_data;
 	}
+
+	public function set_follow_serie($id_user,$id_tmdb){
+       if(!$this->if_serie_followed($id_user,$id_tmdb)){
+       		 $this->db->insert('followed_series', array('id_user' => $id_user, 'id_tmdb' => $id_tmdb));
+       		return ($this->db->affected_rows() != 1) ? false : true;
+       	}else
+       		return false;
+	}
+
+	public function if_serie_followed($id_user,$id_tmdb){
+		$query = $this->db->get_where('followed_series',array('id_user' => $id_user,'id_tmdb' => $id_tmdb));
+		return $query->num_rows() ? $query->row()->id : false;
+	}
 }

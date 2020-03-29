@@ -25,7 +25,7 @@
                 </ul>
                 <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-                      <a href="#" class="btn btn-primary">Suivre</a>
+                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/{id}/true'; ?>" data-id="{id}" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -54,7 +54,7 @@
                  </ul>
                  <div class="card-body">
                     <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
-                      <a href="#" class="btn btn-primary">Suivre</a>
+                      <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -83,7 +83,7 @@
                   </ul>
                   <div class="card-body">
                     <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
-                      <a href="#" class="btn btn-primary">Suivre</a>
+                      <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -99,7 +99,7 @@
       $(document).ready(function() {
         var owl = $('.owl-carousel');
         $('.read-more').click(function(){
-          owl.trigger('stop.owl.autoplay')
+          owl.trigger('stop.owl.autoplay');
           $(this).siblings('.overview').slideToggle(500,function(){
             if($(this).is(':visible'))
                $(this).siblings('.read-more').text('Afficher moins ...');
@@ -115,6 +115,29 @@
               $(this).siblings('.read-more').text('Afficher plus ...');
             });
           }
+        });
+        $('.follow').click(function(e){
+          e.preventDefault();
+          owl.trigger('stop.owl.autoplay');
+          var elmt = $(this);
+          $.ajax({
+           url: elmt.attr('href'),
+           type: "GET",
+           // On récupère la réponse en JSON
+           dataType: "json",
+           success: function(data){
+              if(data == true){
+                console.log(elmt);
+                elmt.removeClass('btn-primary').addClass('btn-success').text('Suivie');
+              }else{
+                alert('Déjà suivie espèce de nouille !');
+              }
+              owl.trigger('play.owl.autoplay');
+           },
+           error: function(data){
+              console.log(data);
+           }
+          });
         });
       });
     </script>
