@@ -21,7 +21,9 @@ class Pages extends MY_Controller{
 				];
 				$data_content = [
 					'heading' => 'Quand est-ce que ça sort ?!',
-					'series' => $this->Series_model->get_random_series(10)
+					'random_series' => $this->Series_model->get_random_series(10),
+					'trending_series' => $this->Series_model->get_trending_series(10),
+					'followed_series' => $this->Series_model->get_followed_series($this->session->user['id'],10),
 				];
 				break;
 			case 'login':

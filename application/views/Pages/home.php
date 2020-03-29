@@ -7,10 +7,10 @@
         </div>
       </div>
 	     <div id="cat-1" class="container py-5">
-         <h1> Mes séries </h1>
+         <h1> Mes dernières séries suivies </h1>
          <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
            <div class="owl-carousel owl-theme">
-              {series}
+              {followed_series}
               <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
                 <img class="card-img-top" src="{img_path}" alt="Card image cap">
                 <div class="card-body">
@@ -31,7 +31,7 @@
                     <?php endif; ?>
                 </div>
               </div>
-              {/series}
+              {/followed_series}
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
           <h1> A la mode </h1>
           <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
             <div class="owl-carousel owl-theme">
-               {series}
+               {trending_series}
                <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
                  <img class="card-img-top" src="{img_path}" alt="Card image cap">
                  <div class="card-body">
@@ -53,14 +53,14 @@
                    <li class="list-group-item">{type}</li>
                  </ul>
                  <div class="card-body">
-                    <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+                    <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
                       <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
                  </div>
                </div>
-               {/series}
+               {/trending_series}
              </div>
            </div>
          </div>
@@ -68,7 +68,7 @@
            <h1> Pourrait vous intéresser </h1>
            <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
              <div class="owl-carousel owl-theme">
-                {series}
+                {random_series}
                 <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
                   <img class="card-img-top" src="{img_path}" alt="Card image cap">
                   <div class="card-body">
@@ -82,14 +82,14 @@
                     <li class="list-group-item">{type}</li>
                   </ul>
                   <div class="card-body">
-                    <?php if(isset($this->session->userdata->id) && !empty($this->session->userdata->id)) : ?>
+                    <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
                       <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
                   </div>
                 </div>
-                {/series}
+                {/random_series}
               </div>
             </div>
           </div>
