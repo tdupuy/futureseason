@@ -8,7 +8,9 @@
       </div>
       <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])): ?>
 	     <div id="cat-1" class="container py-5">
-         <h1> Mes dernières séries suivies </h1>
+         <?php if($followed_series) : ?>
+          <h1> Mes dernières séries suivies </h1>
+         <?php endif; ?>
          <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
            <div class="owl-carousel owl-theme">
               <?php foreach($followed_series as $follow_serie) : ?>
