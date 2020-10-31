@@ -18,3 +18,10 @@ main[role='main']{
 .read-more:hover{
 	cursor: pointer;
 }
+
+a.follow,a.unfollow{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}

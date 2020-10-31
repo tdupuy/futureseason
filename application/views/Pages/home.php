@@ -6,6 +6,7 @@
           <center><h2 class="display-3 page-title">{heading}</h2></center>
         </div>
       </div>
+      <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
 	     <div id="cat-1" class="container py-5">
          <h1> Mes dernières séries suivies </h1>
          <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
@@ -25,7 +26,7 @@
                 </ul>
                 <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/{id}/true'; ?>" data-id="{id}" class="btn btn-primary follow">Suivre</a>
+                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/{id}/true'; ?>" data-id="{id}" class="btn btn-success unfollow">Suivie</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -35,6 +36,7 @@
             </div>
           </div>
         </div>
+      <?php endif;?>
         <div id="cat-2" class="container py-5">
           <h1> A la mode </h1>
           <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
@@ -114,6 +116,11 @@
             $(this).find('.overview').slideUp(function(){
               $(this).siblings('.read-more').text('Afficher plus ...');
             });
+          }
+        });
+        $('.follow,.unfollow').mouseover(function(){
+          if($(this).hasClass('.unfollow')){
+            $(this).removeClass('btn-primary').addClass('btn-danger');
           }
         });
         $('.follow').click(function(e){
