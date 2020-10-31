@@ -7,41 +7,28 @@ class Pages extends MY_Controller{
 		{
 			show_404();
 		}
+
 		$data_header = [];
 		$data_navmenu = [];
 		$data_footer = [];
 		$data_content = [];
 
-		$this->load->model('Series/Series_model');
 		$this->load->library('session');
 		switch ($page) {
 			case 'home':
-				$data_header = [
-					'title' => 'Home page'
-				];
-				$random_series = $this->Series_model->get_random_series(10);
-				$trending_series = $this->Series_model->get_trending_series(10);
-				$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
-				$data_content = [
-					'heading' => 'Quand est-ce que ça sort ?!',
-					'random_series' => $random_series ? $random_series : array(),
-					'trending_series' => $trending_series ?$trending_series : array(),
-					'followed_series' => $followed_series ? $followed_series : array()
-				];
+				$this->prepare_home();
 				break;
 			case 'login':
-				$data_header = [
-					'title' => 'Login'
-				];
+				$this->prepare_login();
+				break;
 			case 'signin':
-				$data_header = [
-					'title' => 'Sign in !'
-				];
+				$this->prepare_signin();
+				break;
 			default:
-				# code...
+				$this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
 				break;
 		}
-        $this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
+        //
 	}
 
 	function follow_serie($id_user,$id_tmdb,$ajax = false){
@@ -57,6 +44,54 @@ class Pages extends MY_Controller{
 			else
 				return false;
 		}
+	}
+
+	function prepare_home(){
+		$page = 'home';
+		$this->load->model('Series/Series_model');
+		$data_header = [];
+		$data_navmenu = [];
+		$data_footer = [];
+		$data_content = [];
+
+		$data_header = [
+			'title' => 'Home page'
+		];
+		$random_series = $this->Series_model->get_random_series(10);
+		$trending_series = $this->Series_model->get_trending_series(10);
+		$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
+		$data_content = [
+			'heading' => 'Quand est-ce que ça sort ?!',
+			'random_series' => $random_series ? $random_series : array(),
+			'trending_series' => $trending_series ?$trending_series : array(),
+			'followed_series' => $followed_series ? $followed_series : array()
+		];
+        $this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
+
+	}
+
+	function prepare_login(){
+		$page = 'login';
+		$data_header = [];
+		$data_navmenu = [];
+		$data_footer = [];
+		$data_content = [];
+		$data_header = [
+			'title' => 'Login'
+		];
+        $this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
+	}
+
+	function prepare_signin(){
+		$page = 'signin';
+		$data_header = [];
+		$data_navmenu = [];
+		$data_footer = [];
+		$data_content = [];
+		$data_header = [
+			'title' => 'Sign in !'
+		];
+        $this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
 	}
 
 }
