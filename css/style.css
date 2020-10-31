@@ -3,8 +3,12 @@
   font-family: 'Sedgwick Ave', cursive;
 }
 
-.jumbotron.header-block{
+.jumbotron.header-block,.form-card-header{
   background-color: #FFE436;
+}
+
+.form-card-header{
+	font-family: 'Sedgwick Ave', cursive;
 }
 
 main[role='main']{

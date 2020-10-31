@@ -1,42 +1,26 @@
-<main role="main">
-<div class="container">
-      <div class="col-md-6 mx-auto text-center">
-         <div class="header-title">
-            <h1 class="wv-heading--title">
-               Sign-in !
-            </h1>
-         </div>
-      </div>
+ <main role="main">
+  <div class="container">
       <div class="row">
-         <div class="col-md-4 mx-auto">
-            <div class="myform form ">
-              <h1> Enregistre toi !</h1>
-               <form action="<?php  echo base_url('Signin/process'); ?>" method="post" name="signin">
-                  <div class="form-group">
-                     <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                     <input type="password" name="password"  class="form-control my-input" placeholder="Password">
-                  </div>
-                  <div class="text-center ">
-                     <button type="submit" class=" btn btn-block send-button tx-tfm">Create Your Free Account</button>
-                  </div>
-                  <div class="col-md-12 ">
-                     <div class="login-or">
-                        <hr class="hr-or">
-                        <span class="span-or">or</span>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <a class="btn btn-block g-button" href="#">
-                     <i class="fa fa-google"></i> Sign up with Google
-                     </a>
-                  </div>
-                  <p class="small mt-3">By signing up, you are indicating that you have read and agree to the <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#">Privacy Policy</a>.
-                  </p>
-               </form>
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <h5 class="card-title form-card-header text-center py-3">S'enregistrer</h5>
+            <div class="card-body">
+              <form class="form-signin" action="<?php echo base_url('Signin/process'); ?>" method="post">
+                <div class="form-label-group mb-4">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                </div>
+                <div class="form-label-group mb-4">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">S'enregistrer</button>
+                <hr class="my-4">
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google"></i> Sign in with Google</button>
+                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fa fa-facebook-f"></i> Sign in with Facebook</button>
+              </form>
             </div>
-         </div>
+          </div>
+        </div>
       </div>
-   </div>
- </main>
+    </div>
+  </main>
+
