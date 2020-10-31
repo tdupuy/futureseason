@@ -28,7 +28,7 @@
                 </ul>
                 <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/{id}/true'; ?>" data-id="{id}" class="btn btn-success unfollow">Suivie</a>
+                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/'.$follow_serie->id.'/true'; ?>" data-id="<?php echo $follow_serie->id ?>" class="btn btn-success unfollow">Suivie</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -58,7 +58,7 @@
                   </ul>
                  <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-                      <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
+                       <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/'.$trending_serie->id.'/true'; ?>" data-id="<?php echo $trending_serie->id ?>" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
@@ -87,7 +87,7 @@
                   </ul>
                   <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-                      <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
+                      <a href="<?php echo base_url('Pages/follow_serie').'/'.$this->session->user['id'].'/'.$random_serie->id.'/true'; ?>" data-id="<?php echo $random_serie->id ?>" class="btn btn-primary follow">Suivre</a>
                     <?php else : ?>
                       <small> Tu dois te connecter pour suivre tes séries préférées ! </small>
                     <?php endif; ?>
