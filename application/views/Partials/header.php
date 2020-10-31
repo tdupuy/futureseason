@@ -12,7 +12,7 @@
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/owl.theme.default.min.css">
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/owl.carousel.min.css">
-    <title>{title}</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href= "<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">

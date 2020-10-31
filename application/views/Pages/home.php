@@ -6,23 +6,23 @@
           <center><h2 class="display-3 page-title">{heading}</h2></center>
         </div>
       </div>
-      <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
+      <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])): ?>
 	     <div id="cat-1" class="container py-5">
          <h1> Mes dernières séries suivies </h1>
          <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
            <div class="owl-carousel owl-theme">
-              {followed_series}
+              <?php foreach($followed_series as $follow_serie) : ?>
               <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
-                <img class="card-img-top" src="{img_path}" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo $follow_serie->img_path ?>" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{name}</h5>
-                  <p class="card-text overview">{overview}</p>
+                  <h5 class="card-title"><?php echo $follow_serie->name ?></h5>
+                  <p class="card-text overview"><?php echo $follow_serie->overview ?></p>
                   <a class="card-text read-more"> Afficher plus ...</a>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{production}</li>
-                  <li class="list-group-item">{current_season}</li>
-                  <li class="list-group-item">{type}</li>
+                  <li class="list-group-item"><?php echo $follow_serie->production ?></li>
+                  <li class="list-group-item"><?php echo $follow_serie->current_season ?></li>
+                  <li class="list-group-item"><?php echo $follow_serie->type ?></li>
                 </ul>
                 <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
@@ -32,7 +32,7 @@
                     <?php endif; ?>
                 </div>
               </div>
-              {/followed_series}
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
@@ -41,19 +41,19 @@
           <h1> A la mode </h1>
           <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
             <div class="owl-carousel owl-theme">
-               {trending_series}
-               <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
-                 <img class="card-img-top" src="{img_path}" alt="Card image cap">
-                 <div class="card-body">
-                   <h5 class="card-title">{name}</h5>
-                   <p class="card-text overview">{overview}</p>
-                   <a class="card-text read-more"> Afficher plus ...</a>
-                 </div>
-                 <ul class="list-group list-group-flush">
-                   <li class="list-group-item">{production}</li>
-                   <li class="list-group-item">{current_season}</li>
-                   <li class="list-group-item">{type}</li>
-                 </ul>
+               <?php foreach($trending_series as $trending_serie) : ?>
+                <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
+                  <img class="card-img-top" src="<?php echo $trending_serie->img_path ?>" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $trending_serie->name ?></h5>
+                    <p class="card-text overview"><?php echo $trending_serie->overview ?></p>
+                    <a class="card-text read-more"> Afficher plus ...</a>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><?php echo $trending_serie->production ?></li>
+                    <li class="list-group-item"><?php echo $trending_serie->current_season ?></li>
+                    <li class="list-group-item"><?php echo $trending_serie->type ?></li>
+                  </ul>
                  <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
                       <a href="#" data-id="{id}" class="btn btn-primary follow">Suivre</a>
@@ -62,7 +62,7 @@
                     <?php endif; ?>
                  </div>
                </div>
-               {/trending_series}
+               <?php endforeach; ?>
              </div>
            </div>
          </div>
@@ -70,18 +70,18 @@
            <h1> Pourrait vous intéresser </h1>
            <div class="row mt-5 ml-5 "><!--d-flex flex-row flex-nowrap-->
              <div class="owl-carousel owl-theme">
-                {random_series}
+                <?php foreach($random_series as $random_serie) : ?>
                 <div class="card card-custom mx-2 mb-3" style="width: 18rem;">
-                  <img class="card-img-top" src="{img_path}" alt="Card image cap">
+                  <img class="card-img-top" src="<?php echo $random_serie->img_path ?>" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">{name}</h5>
-                    <p class="card-text overview">{overview}</p>
+                    <h5 class="card-title"><?php echo $random_serie->name ?></h5>
+                    <p class="card-text overview"><?php echo $random_serie->overview ?></p>
                     <a class="card-text read-more"> Afficher plus ...</a>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{production}</li>
-                    <li class="list-group-item">{current_season}</li>
-                    <li class="list-group-item">{type}</li>
+                    <li class="list-group-item"><?php echo $random_serie->production ?></li>
+                    <li class="list-group-item"><?php echo $random_serie->current_season ?></li>
+                    <li class="list-group-item"><?php echo $random_serie->type ?></li>
                   </ul>
                   <div class="card-body">
                     <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
@@ -91,7 +91,7 @@
                     <?php endif; ?>
                   </div>
                 </div>
-                {/random_series}
+                <?php endforeach; ?>
               </div>
             </div>
           </div>

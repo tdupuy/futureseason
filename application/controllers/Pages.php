@@ -19,11 +19,14 @@ class Pages extends MY_Controller{
 				$data_header = [
 					'title' => 'Home page'
 				];
+				$random_series = $this->Series_model->get_random_series(10);
+				$trending_series = $this->Series_model->get_trending_series(10);
+				$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
 				$data_content = [
 					'heading' => 'Quand est-ce que ça sort ?!',
-					'random_series' => $this->Series_model->get_random_series(10),
-					'trending_series' => $this->Series_model->get_trending_series(10),
-					'followed_series' => $this->Series_model->get_followed_series($this->session->user['id'],10),
+					'random_series' => $random_series ? $random_series : array(),
+					'trending_series' => $trending_series ?$trending_series : array(),
+					'followed_series' => $followed_series ? $followed_series : array()
 				];
 				break;
 			case 'login':
@@ -31,15 +34,14 @@ class Pages extends MY_Controller{
 					'title' => 'Login'
 				];
 			case 'signin':
-					$data_header = [
-						'title' => 'Sign in !'
-					];
+				$data_header = [
+					'title' => 'Sign in !'
+				];
 			default:
 				# code...
 				break;
 		}
-
-			$this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
+        $this->render_page($page,$data_content,$data_header,$data_navmenu,$data_footer);
 	}
 
 	function follow_serie($id_user,$id_tmdb,$ajax = false){
@@ -56,4 +58,5 @@ class Pages extends MY_Controller{
 				return false;
 		}
 	}
+
 }
