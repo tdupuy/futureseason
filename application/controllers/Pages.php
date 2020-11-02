@@ -59,7 +59,10 @@ class Pages extends MY_Controller{
 		];
 		$random_series = $this->Series_model->get_random_series(10);
 		$trending_series = $this->Series_model->get_trending_series(10);
-		$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
+		if($this->session->user)
+			$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
+		else 
+			$followed_series = array();
 		$data_content = [
 			'heading' => 'Quand est-ce que ça sort ?!',
 			'random_series' => $random_series ? $random_series : array(),
