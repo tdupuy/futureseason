@@ -59,7 +59,7 @@ class Pages extends MY_Controller{
 		];
 		$random_series = $this->Series_model->get_random_series(10);
 		$trending_series = $this->Series_model->get_trending_series(10);
-		if($this->session->user)
+		if(isset($this->session->user['id']))
 			$followed_series = $this->Series_model->get_followed_series($this->session->user['id'],10);
 		else 
 			$followed_series = array();
