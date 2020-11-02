@@ -1,4 +1,8 @@
 /* Ajout css */
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Sedgwick Ave', cursive;
+}
+
 .page-title{
   font-family: 'Sedgwick Ave', cursive;
 }
@@ -28,4 +32,17 @@ a.follow,a.unfollow{
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+
+.navbar{
+	background-color: #FFE436;
+	border-bottom:  1px solid #000;
+}
+
+.navbar .navbar-nav .nav-item .nav-link{
+	color : #000;
+}
+
+.navbar .navbar-nav .nav-item.active .nav-link{
+	font-weight: bold;
 }

@@ -1,6 +1,5 @@
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,23 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="home">Accueil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact">contact</a>
+          <a class="nav-link" href="contact">Contact</a>
         </li>
         <li class="nav-item">
           <?php if(isset($this->session->user['id']) && !empty($this->session->user['id'])) : ?>
-            <a class="nav-link" href="<?php echo base_url('Login/logout'); ?>">Logout</a>
+            <a class="nav-link" href="<?php echo base_url('Login/logout'); ?>">Se déconnecter</a>
           <?php else : ?>
-            <a class="nav-link" href="login">Login</a>
+            <a class="nav-link" href="login">Se connecter</a>
           <?php endif; ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signin">Register</a>
+          <a class="nav-link" href="signin">S'enregistrer</a>
         </li>
        </ul>
 
